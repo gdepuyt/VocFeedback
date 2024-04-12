@@ -38,30 +38,38 @@ namespace VocPoc
         }
         public static void CollectAndCopyRequiredFilesToWorkingFolder()
         {
-            VocLogger.LogStep(2, true, "Invoke CollectAndCopyRequiredFilesToWorking method", VocLogger.LogLevel.Info);
-            // Call the CopyAndRenameFiles method for feedback files
-            VocFileManagement.CopyAndRenameFiles(
-              VocConfigurationManagement.FolderConfig.VocFeedbackFileFolder,
-              VocConfigurationManagement.FolderConfig.VocWorkingFileFolder,
-              VocConfigurationManagement.JobIdGenerator.JobId,
-              VocConfigurationManagement.FilePatternConfig.VocResponseFilenamePattern
-            );
-            // Call the CopyAndRenameFiles method for broker file ithout renaming the source file after the copy.
-            VocFileManagement.CopyAndRenameFiles(
-              VocConfigurationManagement.FolderConfig.VocBrokerFileFolder,
-              VocConfigurationManagement.FolderConfig.VocWorkingFileFolder,
-              VocConfigurationManagement.JobIdGenerator.JobId,
-              VocConfigurationManagement.FilePatternConfig.VocBrokerFilenamePattern,
-              false
-            );
-            // Call the CopyAndRenameFiles method for translations file without renaming the source file after the copy.
-            VocFileManagement.CopyAndRenameFiles(
-              VocConfigurationManagement.FolderConfig.VocTranslationsFileFolder,
-              VocConfigurationManagement.FolderConfig.VocWorkingFileFolder,
-              VocConfigurationManagement.JobIdGenerator.JobId,
-              VocConfigurationManagement.FilePatternConfig.VocTranslationsFilePattern,
-              false
-            );
+            try
+            {
+                VocLogger.LogStep(2, true, "Invoke CollectAndCopyRequiredFilesToWorking method", VocLogger.LogLevel.Info);
+                // Call the CopyAndRenameFiles method for feedback files
+
+                VocFileManagement.CopyAndRenameFiles(
+                  VocConfigurationManagement.FolderConfig.VocFeedbackFileFolder,
+                  VocConfigurationManagement.FolderConfig.VocWorkingFileFolder,
+                  VocConfigurationManagement.JobIdGenerator.JobId,
+                  VocConfigurationManagement.FilePatternConfig.VocResponseFilenamePattern
+                );
+                // Call the CopyAndRenameFiles method for broker file ithout renaming the source file after the copy.
+                VocFileManagement.CopyAndRenameFiles(
+                  VocConfigurationManagement.FolderConfig.VocBrokerFileFolder,
+                  VocConfigurationManagement.FolderConfig.VocWorkingFileFolder,
+                  VocConfigurationManagement.JobIdGenerator.JobId,
+                  VocConfigurationManagement.FilePatternConfig.VocBrokerFilenamePattern,
+                  false
+                );
+                // Call the CopyAndRenameFiles method for translations file without renaming the source file after the copy.
+                VocFileManagement.CopyAndRenameFiles(
+                  VocConfigurationManagement.FolderConfig.VocTranslationsFileFolder,
+                  VocConfigurationManagement.FolderConfig.VocWorkingFileFolder,
+                  VocConfigurationManagement.JobIdGenerator.JobId,
+                  VocConfigurationManagement.FilePatternConfig.VocTranslationsFilePattern,
+                  false
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new VocExceptionsManagement(2,"No files available corresponding to the search criteria", AZ_BNL_StepTerminationCode.StoppedNonCritical, ex);
+            }
         }
         public static (List<AZ_BNL_Responses_Claims>, List<AZ_BNL_Responses_Issues>, List<AZ_BNL_Responses_Sales>, List<AZ_BNL_Brokers>) LoadAndFilterFeedbackFilesInMemory(string workingFolder)
         {

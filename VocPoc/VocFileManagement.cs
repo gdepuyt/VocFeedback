@@ -53,6 +53,12 @@ namespace VocPoc
         {
             List<string> responseFiles = GetResponseFiles(sourceDirectory, responseFilenamePattern);
 
+            // Check if the list is empty before proceeding
+            if (!responseFiles.Any())
+            {
+                throw new ArgumentException($"No feedback files found with the specified criteria. List of files for {responseFilenamePattern} in folder {sourceDirectory} is empty.");
+            }
+
             Directory.CreateDirectory(workingFolder); // Create job folder
 
             foreach (string filePath in responseFiles)

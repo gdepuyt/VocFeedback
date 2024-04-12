@@ -1,9 +1,7 @@
 ﻿using MyTestEpPLus;
 using System;
-
 namespace VocPoc
 {
-
     /// <summary>
     /// This class provides a custom exception type for managing exceptions related to steps in a process.
     /// </summary>
@@ -21,7 +19,6 @@ namespace VocPoc
         /// Gets the termination code associated with the exception.
         /// </summary>
         public AZ_BNL_StepTerminationCode StepTerminationCode { get; private set; }
-
         /// <summary>
         /// Initializes a new instance of the VocExceptionsManagement class.
         /// </summary>
@@ -35,7 +32,6 @@ namespace VocPoc
             StepNumber = stepNumber;
             StepMessage = message;
             StepTerminationCode = stepTerminationCode;
-          
         }
         public static void LogBatchProcessException(VocExceptionsManagement ex)
         {
@@ -43,7 +39,21 @@ namespace VocPoc
             {
                 case AZ_BNL_StepTerminationCode.StoppedNonCritical:
                     VocLogger.LogStep(ex.StepNumber, false, "Batch process ended with noncritical error", VocLogger.LogLevel.Info);
-                    VocLogger.LogStep(ex.StepNumber, false, ex.StepMessage, VocLogger.LogLevel.Info);
+                    if (ex.InnerException != null)
+                    {
+                        Exception currentException = ex.InnerException;
+                        do
+                        {
+                            VocLogger.LogStep(ex.StepNumber, false, $"Exception Details :  ({currentException.GetType().Name}): {currentException.Message}", VocLogger.LogLevel.Info);
+                            // Log stack trace if needed: VocLogger.LogStep(ex.StepNumber, false, currentException.StackTrace, VocLogger.LogLevel.Error);
+                            currentException = currentException.InnerException;
+                        } while (currentException != null);
+                    }
+                    else
+                    {
+                        // Handle exceptions without inner exceptions (optional)
+                        VocLogger.LogStep(ex.StepNumber, false, ex.Message, VocLogger.LogLevel.Info);
+                    }
                     break;
                 case AZ_BNL_StepTerminationCode.StoppedError:
                     VocLogger.LogStep(ex.StepNumber, false, "Batch process ended with critical error", VocLogger.LogLevel.Error);
@@ -69,6 +79,4 @@ namespace VocPoc
             }
         }
     }
-
-
 }
