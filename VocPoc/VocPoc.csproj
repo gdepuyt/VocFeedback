@@ -139,13 +139,7 @@
     <Compile Include="VocTranslationManagement.cs" />
     <Compile Include="VocUtilsExcel.cs" />
     <Compile Include="VocFileManagement.cs" />
-    <Compile Include="xxx\xxx_VocConfigurationManagement_old.cs" />
-    <Compile Include="xxx\xxx_CsvDataExtractor.cs" />
     <Compile Include="VocCustomerJourneyDataClass.cs" />
-    <Compile Include="xxx\xxx_ExtractHeader.cs" />
-    <Compile Include="xxx\xxx_FakeClient.cs" />
-    <Compile Include="xxx\xxx_GenerateExcelDocFromFakeData.cs" />
-    <Compile Include="xxx\xxx_VocTrial.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VocUtilsCommon.cs" />
     <Compile Include="VocUtilsXtal.cs" />

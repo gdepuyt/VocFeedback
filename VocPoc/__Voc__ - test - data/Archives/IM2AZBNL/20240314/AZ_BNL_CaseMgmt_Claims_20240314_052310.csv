@@ -1,0 +1,5 @@
+UID;Case_ID;Case_SubmittedDate;Case_ClosureDate;Case_SLAPriority;Case_Status;Case_AlertTriggered;Case_OwnerEmail;Case_CaseResolution;Case_ReasonsDelay;Case_ResolvedFirstCall;Case_PainPoints
+160_NL_11_ANS_2024-03-07-21:09_000000012;8228;2024-03-13 09:07:20;2024-03-13 14:42:38;Closed on time;Closed;Unclear next steps;olfert.forger@allianz.nl;;;;
+160_NL_11_ANS_2024-03-07-21:09_000000045;8229;2024-03-13 09:09:43;2024-03-13 11:59:19;Closed on time;Closed;Unclear next steps;olfert.forger@allianz.nl;;;;
+160_NL_13_ANS_2024-03-07-21:09_000000067;8235;2024-03-13 10:51:53;2024-03-13 14:53:34;Closed on time;Closed;Low 5-star Rating;ria.moorman@allianz.nl;;;;
+160_NL_11_ANS_2024-03-11-21:55_000000151;8224;2024-03-12 10:48:25;2024-03-13 09:15:38;Closed on time;Closed;Low 5-star Rating;delano.ekinci@allianz.nl;;;;

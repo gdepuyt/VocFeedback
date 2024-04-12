@@ -1,0 +1,83 @@
+FieldName;FieldValue;FrenchTranslation;DutchTranslation
+Event_EmployeeDepartmentName;Pension and Protection Payout;Pension and Protection Payout_fr;Pension and Protection Payout_nl
+Event_EmployeeDepartmentName;Beheer Schade;Beheer Schade_fr;Beheer Schade_nl
+Event_EmployeeDepartmentName;Sinistres Protection Juridique;Sinistres Protection Juridique_fr;Sinistres Protection Juridique_nl
+Event_EmployeeDepartmentName;Gestion Sinistre;Gestion Sinistre_fr;Gestion Sinistre_nl
+Event_EmployeeDepartmentName;Materiele netwerken;Materiele netwerken_fr;Materiele netwerken_nl
+Event_EmployeeDepartmentName;Réseaux matériels;Réseaux matériels_fr;Réseaux matériels_nl
+Event_EmployeeDepartmentName;Administratie Schade Zuid;Administratie Schade Zuid_fr;Administratie Schade Zuid_nl
+Event_EmployeeDepartmentName;Administration Sinistres Sud;Administration Sinistres Sud_fr;Administration Sinistres Sud_nl
+Event_EmployeeDepartmentName;BE PNC Property Claim;BE PNC Property Claim_fr;BE PNC Property Claim_nl
+Event_EmployeeDepartmentName;Schadegevallen Rechtsbijstand;Schadegevallen Rechtsbijstand_fr;Schadegevallen Rechtsbijstand_nl
+Event_EmployeeDepartmentName;BE PNC Legal Claim;BE PNC Legal Claim_fr;BE PNC Legal Claim_nl
+Event_EmployeeDepartmentName;BE PNC Motor Claim;BE PNC Motor Claim_fr;BE PNC Motor Claim_nl
+Event_EmployeeDepartmentName;BE P&C Claims Motor;BE P&C Claims Motor_fr;BE P&C Claims Motor_nl
+Event_EmployeeDepartmentName;BE P&C Claims Property;BE P&C Claims Property_fr;BE P&C Claims Property_nl
+Event_EmployeeDepartmentName;BE Life Claims Pension and Protection Payout;BE Life Claims Pension and Protection Payout_fr;BE Life Claims Pension and Protection Payout_nl
+Event_EmployeeDepartmentName;BE P&C Claims Legal Protection;BE P&C Claims Legal Protection_fr;BE P&C Claims Legal Protection_nl
+Event_EmployeeDepartmentName;BE Workers Accident Claims;BE Workers Accident Claims_fr;BE Workers Accident Claims_nl
+Event_EmployeeDepartmentName;Payout life team;Payout life team_fr;Payout life team_nl
+Event_EmployeeDepartmentName;NL Income Claims Individual;NL Income Claims Individual_fr;NL Income Claims Individual_nl
+InteractionPointID;ROOT;Allianz Benelux;
+InteractionPointID;NDAA;P&C Motor Claim - NL;P&C Motor Claim - NL
+InteractionPointID;LFAA;NL Affinities & Automotive Motor Claim Notification;NL Affinities & Automotive Motor Claim Notification
+InteractionPointID;LFAB;NL Affinities & Automotive Motor Claim Settlement;NL Affinities & Automotive Motor Claim Settlement
+InteractionPointID;NDAB;P&C Non-Motor Claim - NL;P&C Non-Motor Claim - NL
+InteractionPointID;LFAC;NL Affinities & Automotive Non-Motor Claim Notification;NL Affinities & Automotive Non-Motor Claim Notification
+InteractionPointID;LFAD;NL Affinities & Automotive Non-Motor Claim Settlement;NL Affinities & Automotive Non-Motor Claim Settlement
+InteractionPointID;NDAF;BE Individual Life Pension & Protection;BE Individual Life Pension & Protection
+InteractionPointID;LFAE;BE Pension & Protection Sales;BE Pension & Protection Sales
+InteractionPointID;LFAF;BE Pension & Protection Issue Resolution;BE Pension & Protection Issue Resolution
+InteractionPointID;LFAG;BE Pension & Protection Payout Settlement;BE Pension & Protection Payout Settlement
+InteractionPointID;NDAG;BE Individual Life Investment;BE Individual Life Investment
+InteractionPointID;LFAH;BE Life Investment;BE Life Investment
+InteractionPointID;NDAM;Closed Book Life Claims - NL ;Closed Book Life Claims - NL 
+InteractionPointID;LFAM;NL Life Closed book Claim Settlement;NL Life Closed book Claim Settlement
+InteractionPointID;NDBA;P&C Sales & Onboarding - NL;P&C Sales & Onboarding - NL
+InteractionPointID;LFBA;NL Affinities & Automotive Motor Sales & Onboarding;NL Affinities & Automotive Motor Sales & Onboarding
+InteractionPointID;LFBB;NL Affinities & Automotive Non-Motor Sales & Onboarding;NL Affinities & Automotive Non-Motor Sales & Onboarding
+InteractionPointID;NDBB;P&C Cancellation - NL;P&C Cancellation - NL
+InteractionPointID;LFBC;NL Affinities & Automotive Motor Cancellation;NL Affinities & Automotive Motor Cancellation
+InteractionPointID;LFBD;NL Affinities & Automotive Non-Motor Cancellation;NL Affinities & Automotive Non-Motor Cancellation
+InteractionPointID;NDBC;P&C Issue resolution - NL;P&C Issue resolution - NL
+InteractionPointID;LFBE;NL Affinities & Automotive Motor Issue resolution;NL Affinities & Automotive Motor Issue resolution
+InteractionPointID;LFBF;NL Affinities & Automotive Non-Motor Issue resolution;NL Affinities & Automotive Non-Motor Issue resolution
+InteractionPointID;NDBF;Income Claims - NL;Income Claims - NL
+InteractionPointID;LFBH;NL Income Claim Notification & Settlement;NL Income Claim Notification & Settlement
+InteractionPointID;NDBG;Income Policy - NL;Income Policy - NL
+InteractionPointID;LFBJ;NL Income Policy (Sales Cancellation and Issue resolution);NL Income Policy (Sales Cancellation and Issue resolution)
+InteractionPointID;NDBH;Income Issue resolution for Email and Phone contacts - NL;Income Issue resolution for Email and Phone contacts - NL
+InteractionPointID;LFBK;Income individueel Claim;Income individueel Claim
+InteractionPointID;LFBL;Income collectief Claim;Income collectief Claim
+InteractionPointID;LFBM;Income Individueel Underwriting;Income Individueel Underwriting
+InteractionPointID;LFBN;Income Collectief Underwriting;Income Collectief Underwriting
+InteractionPointID;NDAJ;BE P&C Claim Settlement;BE P&C Claim Settlement
+InteractionPointID;LFAJ;BE Motor Claim Settlement;BE Motor Claim Settlement
+InteractionPointID;LFAK;BE Non-Motor Claim Settlement;BE Non-Motor Claim Settlement
+InteractionPointID;NDAK;BE P&C Policy ;BE P&C Policy 
+InteractionPointID;LFAL;BE P&C Policy Motor;BE P&C Policy Motor
+InteractionPointID;LFAN;BE P&C Policy Non-Motor;BE P&C Policy Non-Motor
+InteractionPointID;NDAL;BE Workers Accident;BE Workers Accident
+InteractionPointID;LFAO;BE Workers Accident Claim Settlement;BE Workers Accident Claim Settlement
+InteractionPointID;NDBI;Life Policy - NL;Life Policy - NL
+InteractionPointID;LFBP;NL Life Policy Group Pension & PPI;NL Life Policy Group Pension & PPI
+InteractionPointID;LFBQ;NL Life Policy Term Life;NL Life Policy Term Life
+InteractionPointID;LFBR;NL Life Policy Annuities;NL Life Policy Annuities
+InteractionPointID;NDBJ;Life Issue resolution - NL;Life Issue resolution - NL
+InteractionPointID;LFBS;NL Life Issue Resolution Group Pension;NL Life Issue Resolution Group Pension
+InteractionPointID;LFBT;NL Life Issue Resolution PPI;NL Life Issue Resolution PPI
+InteractionPointID;LFBU;NL Life Issue Resolution Term Life;NL Life Issue Resolution Term Life
+InteractionPointID;LFBV;NL Life Issue Resolution Term Life Closed Book;NL Life Issue Resolution Term Life Closed Book
+InteractionPointID;LFBX;NL Life Issue Resolution Closed Book;NL Life Issue Resolution Closed Book
+InteractionPointID;LFBW;NL Life Issue Resolution Annuities;NL Life Issue Resolution Annuities
+InteractionPointID;NDBK;Life Outbound Communication - NL;Life Outbound Communication - NL
+InteractionPointID;LFBZ;NL Life Outbound Communication Group Pension;NL Life Outbound Communication Group Pension
+LineOfBusiness;0;P&C;P&C
+LineOfBusiness;1;Life;Life
+LineOfBusiness;2;Health;Health
+LineOfBusiness;3;Non-Specific;Non-Specific
+Email;Title;Retour des Allianz Customers Journeys;Allianz Customers Feedbacks
+ExcWksSheet;Issues;Issue FR;Issue NL;
+ExcWksSheet;Sales;Sales FR;Sales NL;
+ExcWksSheet;Claims;Claims FR;Claims NL;
+

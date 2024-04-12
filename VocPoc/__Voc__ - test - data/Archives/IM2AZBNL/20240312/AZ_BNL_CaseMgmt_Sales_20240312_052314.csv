@@ -1,0 +1,4 @@
+UID;Case_ID;Case_SubmittedDate;Case_ClosureDate;Case_SLAPriority;Case_Status;Case_AlertTriggered;Case_OwnerEmail;Case_CaseResolution;Case_ReasonsDelay;Case_ResolvedFirstCall;Case_PainPoints
+160_NL_22_LEANAPPST_2024-02-08-12:00_000000003;8210;2024-03-08 16:16:14;2024-03-11 13:42:01;Closed on time;Closed;Low 5-star Rating;laurens.nieuwenhuijsen2@allianz.nl;;;;
+160_NL_22_LEANAPPSP_2024-02-19-12:00_000000008;8190;2024-03-07 10:46:46;2024-03-11 15:55:15;Escalated;Closed;Low 5-star Rating;jeanine.felter@allianz.nl;;;;
+160_NL_22_LEVEL_2024-03-06-06:30_000051;8213;2024-03-11 09:11:42;2024-03-11 09:15:33;Closed on time;Closed;Low 5-star Rating;peter.uijterwaal@allianz.nl;;;;

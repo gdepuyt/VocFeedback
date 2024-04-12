@@ -1,0 +1,6 @@
+UID;Case_ID;Case_SubmittedDate;Case_ClosureDate;Case_SLAPriority;Case_Status;Case_AlertTriggered;Case_OwnerEmail;Case_CaseResolution;Case_ReasonsDelay;Case_ResolvedFirstCall;Case_PainPoints
+160_NL_11_ANS_2024-02-08-20:49_000000025;8212;2024-03-09 14:58:42;2024-03-11 10:53:42;Closed on time;Closed;Unclear next steps;delano.ekinci@allianz.nl;;;;
+160_NL_13_ANS_2024-02-29-21:09_000000063;8194;2024-03-07 16:55:35;2024-03-11 10:00:07;Closed on time;Closed;Low 5-star Rating;jackie.kruizinga@allianz.nl;;;;
+160_NL_13_ANS_2024-02-29-21:09_000000072;8195;2024-03-07 17:48:09;2024-03-11 13:16:17;Closed on time;Closed;Low 5-star Rating;judith.vleer@allianz.nl;;;;
+160_NL_13_ANS_2024-03-01-21:45_000000071;8201;2024-03-08 09:17:16;2024-03-11 13:17:49;Closed on time;Closed;Low 5-star Rating;judith.vleer@allianz.nl;;;;
+160_BE_13_SAHARA_2024-03-08-23:00_000007;8214;2024-03-11 09:33:37;2024-03-11 11:09:33;Closed on time;Closed;Low 5-star Rating;pamela.ramijsen@allianz.be;;;;

@@ -1,69 +1,8 @@
-﻿using MyTestEpPLus;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Data;
-using System.IO;
-using System.Linq;
-using static VocPoc.VocUtilsCommon;
 using static VocPoc.VocUtilsExcel;
-using static VocPoc.VocSteps;
 namespace VocPoc
 {
-    //internal class VocMain
-    //{
-    /*        static void Main(string[] args)
-            {
-                AZ_BNL_StepTerminationCode stepTerminationCode = AZ_BNL_StepTerminationCode.Success;
-                try
-                {
-                    //Step 01
-                    Initialize();
-                    //Step 02
-                    CollectAndCopyRequiredFilesToWorkingFolder();
-                    //Step 03
-                    (List<AZ_BNL_Responses_Claims> claimsList, List<AZ_BNL_Responses_Issues> issuesList, List<AZ_BNL_Responses_Sales> salesList, List<AZ_BNL_Brokers> brokersList) = LoadAndFilterFeedbackFilesInMemory(VocConfigurationManagement.FolderConfig.VocWorkingFileFolder);
-                    //Step 04
-                    MergeAndWriteMasterExcelList(
-                      VocConfigurationManagement.FolderConfig.VocWorkingFileFolder,
-                     claimsList,
-                     issuesList,
-                     salesList,
-                     brokersList);
-                    //Step 05
-                    (List<PropertyInfo> configClaims, List<PropertyInfo> configIssues, List<PropertyInfo> configSales) = GetPropertiesFromXlsTemplates();
-                    //Step 06
-                    (List<AZ_BNL_Record> reqfields_claimsList, List<AZ_BNL_Record> reqfields_issuesList, List<AZ_BNL_Record> reqfields_salesList) = ProcessAndReturnLists(claimsList, configClaims, issuesList, configIssues, salesList, configSales);
-                    //Step 07
-                    WriteGroupedDataForTypes(reqfields_claimsList, reqfields_issuesList, reqfields_salesList, VocConfigurationManagement.FolderConfig.VocTemplateFileFolder);
-                    // Use the extracted properties here (configClaims, configIssues, configSales)
-                    //Step 08
-                    GroupAllExcelCreatedByBCAB();
-                    //Step 09
-                    string communicationRequestXml = GenerateCommunicationRequest(VocConfigurationManagement.FolderConfig.VocOutputFileFolder);
-                    //Step 10
-                }
-                catch (VocExceptionsManagement ex)
-                {
-                    VocExceptionsManagement.
-                                    // Handle the exception here (e.g., log the error, display a message to the user)
-                                    LogBatchProcessException(ex);
-                    stepTerminationCode = ex.StepTerminationCode;
-                    // You can decide what to do here (e.g., continue execution, exit gracefully)
-                }
-                finally
-                {
-                    ExitBatch(stepTerminationCode);
-                }
-            }
-
-            public static void ExitBatch(AZ_BNL_StepTerminationCode stepTerminationCode)
-            {
-                if (stepTerminationCode != AZ_BNL_StepTerminationCode.StoppedError)
-                {
-                    Environment.Exit(0);
-                }
-                else { Environment.Exit(1); }
-            }*/
 
     public class VocMain
     {

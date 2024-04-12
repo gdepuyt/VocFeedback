@@ -1,0 +1,5 @@
+UID;Case_ID;Case_SubmittedDate;Case_ClosureDate;Case_SLAPriority;Case_Status;Case_AlertTriggered;Case_OwnerEmail;Case_CaseResolution;Case_ReasonsDelay;Case_ResolvedFirstCall;Case_PainPoints
+160_NL_22_LEANAPPST_2024-02-13-12:00_000000003;8234;2024-03-13 10:34:31;2024-03-13 14:33:49;Closed on time;Closed;Low 5-star Rating;tom.nanne@allianz.nl;;;;
+160_NL_22_LEANAPPST_2024-02-13-12:00_000000008;8232;2024-03-13 09:56:20;2024-03-13 14:56:08;Closed on time;Closed;Low 5-star Rating;tom.nanne@allianz.nl;;;;
+160_NL_22_ANS_2024-03-06-21:09_000000167;8209;2024-03-08 15:51:20;2024-03-13 17:24:08;Escalated;Closed;Low 5-star Rating;patrick.kuzee@allianz.nl;;;;
+;8217;2024-03-11 21:38:33;2024-03-13 11:04:39;Closed on time;Closed;Low 5-star Rating;jeanine.felter@allianz.nl;;;;

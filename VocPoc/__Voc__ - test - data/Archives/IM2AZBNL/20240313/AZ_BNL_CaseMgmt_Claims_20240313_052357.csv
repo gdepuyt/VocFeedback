@@ -1,0 +1,4 @@
+UID;Case_ID;Case_SubmittedDate;Case_ClosureDate;Case_SLAPriority;Case_Status;Case_AlertTriggered;Case_OwnerEmail;Case_CaseResolution;Case_ReasonsDelay;Case_ResolvedFirstCall;Case_PainPoints
+160_NL_13_ANS_2024-03-06-21:09_000000027;8221;2024-03-12 09:22:57;2024-03-12 09:28:19;Closed on time;Closed;Low 5-star Rating;henk.van.galen@allianz.nl;;;;
+160_NL_13_ANS_2024-03-06-21:09_000000063;8223;2024-03-12 10:31:27;2024-03-12 11:29:14;Closed on time;Closed;Low 5-star Rating;ria.moorman@allianz.nl;;;;
+160_BE_13_SAHARA_2024-03-11-23:00_000011;8222;2024-03-12 09:55:36;2024-03-12 10:55:19;Closed on time;Closed;Low 5-star Rating;pamela.ramijsen@allianz.be;;;;
