@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using MyTestEpPLus;
+using System.Collections.Generic;
 using System.IO;
 using System.Xml;
 using VocPoC;
@@ -342,44 +343,51 @@ namespace VocPoc
 
                     BrokerDetails brokerDetails = VocBrokerInformation.GetBrokerDetails(fileInfo.FilenameWithoutExtension);
 
-                    string subjectValue = VocTranslationManagement.FieldMappingProvider.GetTranslation("Email", "Title", brokerDetails.Language) + " " + brokerDetails.BrokerBCAB;
-                    string addresseeLanguageValue = brokerDetails.Language;
-                    string uriValue = brokerDetails.Email;
-                    string sequenceNumberValue = sequenceComm.ToString();
+                    if (!brokerDetails.Optout) {
+
+                        string subjectValue = VocTranslationManagement.FieldMappingProvider.GetTranslation("Email", "Title", brokerDetails.Language) + " " + brokerDetails.BrokerBCAB;
+                        string addresseeLanguageValue = brokerDetails.Language;
+                        string uriValue = brokerDetails.Email;
+                        string sequenceNumberValue = sequenceComm.ToString();
 
 
-                    string[] attachmentFilePaths = new string[1];
+                        string[] attachmentFilePaths = new string[1];
 
-                    for (int i = 0; i < 1; i++)
-                    {
+                        for (int i = 0; i < 1; i++)
+                        {
 
-                        attachmentFilePaths[i] = Path.Combine(VocConfigurationManagement.FolderConfig.VocOutputFileFolder, fileInfo.FileName);
-                        //$@"\\zeus\a\softs\data\DUPL\VoC\Feedbacks\ToBrokers\{fileInfo.FilenameWithoutExtension}.xlsx";
+                            attachmentFilePaths[i] = Path.Combine(VocConfigurationManagement.FolderConfig.VocOutputFileFolder, fileInfo.FileName);
+                            //$@"\\zeus\a\softs\data\DUPL\VoC\Feedbacks\ToBrokers\{fileInfo.FilenameWithoutExtension}.xlsx";
+                        }
+
+
+                        //attachmentFilePaths = \\zeus\a\softs\data\DUPL\VoC\Feedbacks\ToBrokers\ fileInfo.FilenameWithoutExtension
+
+                        XmlElement communication = CreateCommunication(doc, communicationTypeValue, sequenceNumberValue, addresseeLanguageValue, addresseeRoleValue, isColorValue,
+                                                                    channelValue, uriValue, fromValue, replyToValue, subjectValue, attachmentFilePaths, dynamicData);
+
+
+                        communications.AppendChild(communication);
+
+
+                        XmlElement sequenceNumberElement = (XmlElement)requestHeader.SelectSingleNode("//ComCount");
+
+                        if (sequenceNumberElement != null)
+                        {
+                            sequenceNumberElement.InnerText = sequenceComm.ToString();
+                        }
+
+
+                        if (sequenceComm >= 100)
+                        {
+                            break; // Exit the loop after 10 iterations
+                        }
+
+                        sequenceComm++;
+
                     }
 
-
-                    //attachmentFilePaths = \\zeus\a\softs\data\DUPL\VoC\Feedbacks\ToBrokers\ fileInfo.FilenameWithoutExtension
-
-                    XmlElement communication = CreateCommunication(doc, communicationTypeValue, sequenceNumberValue, addresseeLanguageValue, addresseeRoleValue, isColorValue,
-                                                                channelValue, uriValue, fromValue, replyToValue, subjectValue, attachmentFilePaths, dynamicData);
-
-
-                    communications.AppendChild(communication);
-
-                    XmlElement sequenceNumberElement = (XmlElement)requestHeader.SelectSingleNode("//ComCount");
-
-                    if (sequenceNumberElement != null)
-                    {
-                        sequenceNumberElement.InnerText = sequenceComm.ToString();
-                    }
-
-
-                    if (sequenceComm >= 10)
-                    {
-                        break; // Exit the loop after 10 iterations
-                    }
-
-                    sequenceComm++;
+                    VocLogger.LogStep(9, false, $"Broker {brokerDetails.BrokerBCAB} - {brokerDetails.Email} has optedout and will not be part of the email communication ",VocLogger.LogLevel.Info);
 
                 }
 

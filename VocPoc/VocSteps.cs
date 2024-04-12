@@ -27,6 +27,8 @@ namespace VocPoc
                 //Check if translations & brokers files are availalbe and well formated
                 CsvValidator.ValidateCsv(Path.Combine(VocConfigurationManagement.FolderConfig.VocTranslationsFileFolder, VocConfigurationManagement.FilePatternConfig.VocTranslationsFilePattern), typeof(AZ_BNL_FieldMapping));
                 CsvValidator.ValidateCsv(Path.Combine(VocConfigurationManagement.FolderConfig.VocBrokerFileFolder, VocConfigurationManagement.FilePatternConfig.VocBrokerFilenamePattern), typeof(AZ_BNL_Brokers));
+                CsvValidator.ValidateCsv(Path.Combine(VocConfigurationManagement.FolderConfig.VocBrokerFileFolder, VocConfigurationManagement.FilePatternConfig.VocBrokerOptOutFilenamePattern), typeof(AZ_BNL_Brokers_Optout));
+
                 VocFileManagement.FileExists(Path.Combine(VocConfigurationManagement.FolderConfig.VocTemplateFileFolder, VocConfigurationManagement.FilePatternConfig.VocXlsTemplate_IssuesFilenamePattern));
                 VocFileManagement.FileExists(Path.Combine(VocConfigurationManagement.FolderConfig.VocTemplateFileFolder, VocConfigurationManagement.FilePatternConfig.VocXlsTemplate_ClaimsFilenamePattern));
                 VocFileManagement.FileExists(Path.Combine(VocConfigurationManagement.FolderConfig.VocTemplateFileFolder, VocConfigurationManagement.FilePatternConfig.VocXlsTemplate_SalesFilenamePattern));
@@ -55,6 +57,14 @@ namespace VocPoc
                   VocConfigurationManagement.FolderConfig.VocWorkingFileFolder,
                   VocConfigurationManagement.JobIdGenerator.JobId,
                   VocConfigurationManagement.FilePatternConfig.VocBrokerFilenamePattern,
+                  false
+                );
+                // Call the CopyAndRenameFiles method for broker optoutfiles without renaming the source file after the copy.
+                VocFileManagement.CopyAndRenameFiles(
+                  VocConfigurationManagement.FolderConfig.VocBrokerFileFolder,
+                  VocConfigurationManagement.FolderConfig.VocWorkingFileFolder,
+                  VocConfigurationManagement.JobIdGenerator.JobId,
+                  VocConfigurationManagement.FilePatternConfig.VocBrokerOptOutFilenamePattern,
                   false
                 );
                 // Call the CopyAndRenameFiles method for translations file without renaming the source file after the copy.

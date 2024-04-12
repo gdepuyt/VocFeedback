@@ -438,6 +438,11 @@
         public string CustSales_Email { get; set; }
     }
 
+    public class AZ_BNL_Brokers_Optout
+    {
+        public string BrokerOptout_BCAB { get; set; }
+    }
+
     public class AZ_BNL_FieldMapping
     {
         public string FieldName { get; set; }

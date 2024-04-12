@@ -78,7 +78,7 @@ namespace VocPoc
             string pattern1 = @"AZ_BNL_Responses_(?<type>(Claims|Sales|Issue))"; //VocConfigurationManagement.FilePatternConfig.VocResponseFilenamePattern; // // Pattern for Responses
             string pattern2 = Path.GetFileNameWithoutExtension(VocConfigurationManagement.FilePatternConfig.VocBrokerFilenamePattern);  //@"AZ_BNL_BrokersList";
             string pattern3 = Path.GetFileNameWithoutExtension(VocConfigurationManagement.FilePatternConfig.VocTranslationsFilePattern); //@"AZ_BNL_Translations"; // Pattern for Brokerlist
-
+            string pattern4 = Path.GetFileNameWithoutExtension(VocConfigurationManagement.FilePatternConfig.VocBrokerOptOutFilenamePattern);
             // Try matching Responses pattern first
             Match match1 = Regex.Match(fileName, pattern1);
             if (match1.Success)
@@ -100,9 +100,15 @@ namespace VocPoc
                 return "translation"; // Return a specific string for Translations.
             }
 
+            Match match4 = Regex.Match(fileName, pattern4);
+            if (match4.Success)
+            {
+                return "brokeroptoutlist"; // Return a specific string for Translations.
+            }
+
 
             // If both patterns fail
-            throw new ArgumentException($"Filename '{fileName}' doesn't match expected format.");
+            throw new ArgumentException($"Not possible to associate Filename '{fileName}' to a valid data class");
         }
 
         /// <summary>
@@ -128,6 +134,8 @@ namespace VocPoc
                     return typeof(AZ_BNL_Responses_Issues);
                 case "brokerlist":
                     return typeof(AZ_BNL_Brokers);
+                case "brokeroptoutlist":
+                    return typeof(AZ_BNL_Brokers_Optout);
                 case "translation":
                     return typeof(AZ_BNL_FieldMapping);
                 default:

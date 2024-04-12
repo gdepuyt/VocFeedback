@@ -209,6 +209,7 @@ namespace VocPoc
         {
             private static string _vocResponseFilenamePattern;
             private static string _vocBrokerFilenamePattern;
+            private static string _vocBrokerOptoutFilenamePattern;
             private static string _vocTranslationsFilenamePattern;
             private static string _voc_XlsTemplate_IssuesFilenamePattern;
             private static string _voc_XlsTemplate_ClaimsFilenamePattern;
@@ -221,6 +222,7 @@ namespace VocPoc
 
                 _vocResponseFilenamePattern = ConfigurationManager.AppSettings["VocResponseFilenamePattern"];
                 _vocBrokerFilenamePattern = ConfigurationManager.AppSettings["VocBrokerFilenamePattern"];
+                _vocBrokerOptoutFilenamePattern = ConfigurationManager.AppSettings["VocBrokerOptoutFilenamePattern"];
                 _vocTranslationsFilenamePattern = ConfigurationManager.AppSettings["VocTranslationsFilenamePattern"];
                 _voc_XlsTemplate_IssuesFilenamePattern = ConfigurationManager.AppSettings["Voc_XlsTemplate_IssuesFilenamePattern"];
                 _voc_XlsTemplate_ClaimsFilenamePattern = ConfigurationManager.AppSettings["Voc_XlsTemplate_ClaimsFilenamePattern"];
@@ -230,6 +232,7 @@ namespace VocPoc
 
             public static string VocResponseFilenamePattern => _vocResponseFilenamePattern;
             public static string VocBrokerFilenamePattern => _vocBrokerFilenamePattern;
+            public static string VocBrokerOptOutFilenamePattern => _vocBrokerOptoutFilenamePattern;
             public static string VocTranslationsFilePattern => _vocTranslationsFilenamePattern;
             public static string VocXlsTemplate_IssuesFilenamePattern => _voc_XlsTemplate_IssuesFilenamePattern;
             public static string VocXlsTemplate_ClaimsFilenamePattern => _voc_XlsTemplate_ClaimsFilenamePattern;

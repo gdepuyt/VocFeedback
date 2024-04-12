@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using static VocPoc.VocBrokerInformation;
 
 namespace VocPoc
 
@@ -38,10 +39,12 @@ namespace VocPoc
             /// Gets or sets the broker's phone number.
             /// </summary>
             public string PhoneNumber { get; set; }
+            public bool Optout { get; set; }
         }
 
         private static string _brokerCsvFolder = VocConfigurationManagement.FolderConfig.VocWorkingFileFolder; // Assuming this retrieves the folder path
-        private static string _brokerCsvFile = VocConfigurationManagement.FilePatternConfig.VocBrokerFilenamePattern; // Assuming this holds the filename pattern
+        private static string _brokerCsvFile = VocConfigurationManagement.FilePatternConfig.VocBrokerFilenamePattern;
+        private static string _brokerOptoutCsvFile = VocConfigurationManagement.FilePatternConfig.VocBrokerOptOutFilenamePattern; // Assuming this holds the filename pattern
 
         private static List<BrokerDetails> _cachedBrokers = null;
         private static readonly bool UseCache = true; // Flag to enable/disable caching
@@ -57,11 +60,13 @@ namespace VocPoc
             if (UseCache && _cachedBrokers == null)
             {
                 // Read data from CSV file and map to AZ_BNL_Brokers list
-                List<object> allData = VocUtilsCommon.ReadAllCsvFilesFromFolder(_brokerCsvFolder, _brokerCsvFile);
+                List<object> allData = VocUtilsCommon.ReadAllCsvFilesFromFolder(_brokerCsvFolder);
                 List<AZ_BNL_Brokers> csvBrokers = allData.OfType<AZ_BNL_Brokers>().ToList();
+                List<AZ_BNL_Brokers_Optout> csvBrokersOptout = allData.OfType<AZ_BNL_Brokers_Optout>().ToList();
+
 
                 // Convert AZ_BNL_Brokers to BrokerDetails (assuming mapping logic)
-                _cachedBrokers = ConvertCsvBrokersToDetails(csvBrokers);
+                _cachedBrokers = ConvertCsvBrokersToDetails(csvBrokers, csvBrokersOptout);
             }
 
             // Find the broker by BCAB from cached data
@@ -77,22 +82,23 @@ namespace VocPoc
             return broker;
         }
 
-        private static List<BrokerDetails> ConvertCsvBrokersToDetails(List<AZ_BNL_Brokers> csvBrokers)
+        private static List<BrokerDetails> ConvertCsvBrokersToDetails(List<AZ_BNL_Brokers> csvBrokers, List<AZ_BNL_Brokers_Optout> csvBrokersOptout)
         {
             // Implement logic to convert AZ_BNL_Brokers objects to BrokerDetails objects
             // Map corresponding properties (assuming they exist)
-            List<BrokerDetails> details = new List<BrokerDetails>();
-            foreach (var csvBroker in csvBrokers)
+            List<BrokerDetails> brokerDetails = new List<BrokerDetails>();
+            foreach (var brokermetadata in csvBrokers)
             {
-                details.Add(new BrokerDetails
+                var optoutRecord = csvBrokersOptout.FirstOrDefault(o => o.BrokerOptout_BCAB == brokermetadata.CustSales_AgencyID);
+                brokerDetails.Add(new BrokerDetails
                 {
-                    BrokerBCAB = csvBroker.CustSales_AgencyID,
-                    Email = csvBroker.CustSales_Email,
-                    Language = csvBroker.CustSales_Language,
-                    // ... map other properties as needed (Location, PhoneNumber)
+                    BrokerBCAB = brokermetadata.CustSales_AgencyID,
+                    Email = brokermetadata.CustSales_Email,
+                    Language = brokermetadata.CustSales_Language,
+                    Optout = optoutRecord != null
                 });
             }
-            return details;
+            return brokerDetails;
         }
     }
 
