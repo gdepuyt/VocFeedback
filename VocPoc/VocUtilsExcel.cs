@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
 using VocPoC;
+using static OfficeOpenXml.ExcelErrorValue;
 using static VocPoc.VocBrokerInformation;
 using Excel = OfficeOpenXml;
 
@@ -191,6 +192,7 @@ namespace VocPoc
                             // Add PropertyInfo object for the extracted property
                             properties.Add(new PropertyInfo(filePath, propertyName, col, row, labelFrench, labelDutch));
                         }
+                        VocLogger.LogStep(7, false, properties), VocLogger.LogLevel.Info);
                     }
                 }
             }
@@ -328,8 +330,31 @@ namespace VocPoc
         /// </summary>
         /// <param name="itemAnswer">The string value to be formatted.</param>
         /// <returns>The formatted value (can be integer, lowercase string, or "---" for empty strings).</returns>
+        //public static object FormatValueForExcel(string itemAnswer)
+        //{
+        //    if (int.TryParse(itemAnswer, out int intValue))
+        //    {
+        //        return intValue;
+        //    }
+        //    else if (IsValidEmail(itemAnswer)) // Check if it's a valid email address
+        //    {
+        //        return itemAnswer.ToLower(); // Convert to lowercase if email
+        //    }
+        //    else
+        //    {
+        //        return string.IsNullOrEmpty(itemAnswer) ? "---" : itemAnswer;
+        //    }
+        //}
+
         public static object FormatValueForExcel(string itemAnswer)
         {
+            // Check for null or empty string first
+            if (string.IsNullOrEmpty(itemAnswer))
+            {
+                return "---"; // Return default value for null/empty
+            }
+
+            // Continue with existing logic for non-null/empty values
             if (int.TryParse(itemAnswer, out int intValue))
             {
                 return intValue;
@@ -340,7 +365,7 @@ namespace VocPoc
             }
             else
             {
-                return string.IsNullOrEmpty(itemAnswer) ? "---" : itemAnswer;
+                return itemAnswer; // Otherwise, return the original string
             }
         }
 
@@ -496,7 +521,11 @@ namespace VocPoc
                 {
                     // Get property name and value using reflection (avoiding unnecessary variable assignments)
                     var propertyName = propertyInfo.PropertyName;
-                    object propertyValue = item.GetType().GetProperty(propertyName)?.GetValue(item);
+
+                    (string propertySrc, string propertyTarget) = SplitProp(propertyName);
+
+                    
+                    object propertyValue = item.GetType().GetProperty(propertySrc)?.GetValue(item);
 
                     // Get base property values (UID, Journey, SubJourney, CustSales_AgencyID) using reflection
                     object uid = item.GetType().GetProperty("UID")?.GetValue(item);
@@ -504,10 +533,14 @@ namespace VocPoc
                     object subJourney = item.GetType().GetProperty("SubJourney")?.GetValue(item);
                     object custSalesAgencyID = item.GetType().GetProperty("CustSales_AgencyID")?.GetValue(item);
 
+
+                    //In case the same value needs to be added in dashboard but differently translated.
+                    //propertyName = ModifyProp(propertyName);
+
                     // Create a new AZ_BNL_Record object with selected attributes
                     modifiedList.Add(new AZ_BNL_Record(
                         (string)uid, (string)journey, (string)subJourney, (string)custSalesAgencyID,
-                        propertyName, propertyInfo.LabelDutch, propertyInfo.LabelFrench, (string)propertyValue,
+                       (string)propertyTarget, propertyInfo.LabelDutch, propertyInfo.LabelFrench, (string)propertyValue,
                         propertyInfo.Row, propertyInfo.Column
                     ));
                 }
@@ -515,6 +548,19 @@ namespace VocPoc
 
             return modifiedList;
         }
+        //Double Conditions Features
+        private static (string part1, string part2) SplitProp(string propertyName)
+        {
+            if (!propertyName.Contains("|"))
+            {
+                return (propertyName, propertyName); // Return original string for both part1 & part2
+            }
 
+            string[] parts = propertyName.Split('|');
+            return (parts[0], parts[1]); // Return first part and second part
+        }
     }
+
+
 }
+        
